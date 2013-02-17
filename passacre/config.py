@@ -30,7 +30,7 @@ def multibase_of_schema(schema):
 
 def load(infile):
     "Load site configuration from a YAML file object."
-    parsed = yaml.load(infile)
+    parsed = yaml.safe_load(infile)
     defaults = parsed['sites'].get('default', {})
     sites = {}
     for site, additional_config in parsed['sites'].iteritems():
